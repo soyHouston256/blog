@@ -19,9 +19,8 @@ export class AuthController {
       console.log(email, password);
 
       const token = await this.authService.login(data);
-      return { token }; // Devuelve el token en caso de éxito
+      return { ...token };
     } catch (error) {
-      // Maneja errores y devuelve una respuesta HTTP clara
       throw new HttpException(
         {
           status: HttpStatus.UNAUTHORIZED,

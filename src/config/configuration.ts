@@ -7,18 +7,18 @@ export default (): GlobalConfig => ({
     host: process.env.HOST || '0.0.0.0',
   },
   db: {
-    uri: process.env.DB_HOST || 'mongodb://localhost:27017',
-    dbName: process.env.DB_DATABASE || 'pichanga',
-    user: process.env.DB_USERNAME || 'superAdmin',
-    pass: process.env.DB_PASSWORD || 'password1',
+    uri: process.env.DB_HOST,
+    dbName: process.env.DB_DATABASE,
+    user: process.env.DB_USERNAME,
+    pass: process.env.DB_PASSWORD,
   },
   kafka: {
-    clientId: process.env.KAFKA_CLIENT_ID || 'transaction',
-    groupId: process.env.KAFKA_GROUP_ID || 'transaction-consumer',
+    clientId: process.env.KAFKA_CLIENT_ID,
+    groupId: process.env.KAFKA_GROUP_ID,
     brokers: process.env.KAFKA_BROKERS?.split(','),
   },
   unleash: {
-    apiUrl: process.env.UNLEASH_API_URL || 'http://localhost:4242/api/',
+    apiUrl: process.env.UNLEASH_API_URL,
     apiToken:
       process.env.UNLEASH_API_TOKEN ||
       'default:development.unleash-insecure-api-token',

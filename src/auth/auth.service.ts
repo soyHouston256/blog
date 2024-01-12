@@ -56,7 +56,7 @@ export class AuthService {
     //const data = user[0];
     const data = {
       user: user[0],
-      token,
+      access_token: token,
     };
     return data;
   }

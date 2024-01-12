@@ -13,7 +13,6 @@ import { User } from 'src/auth/entities/User';
 import { CreateUserDto } from './dto/register-user.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { UnleashService } from 'src/infra/unleash/unleash.service';
-//import { UnleashService } from 'nestjs-unleash';
 
 @Controller('user')
 export class UserController {
@@ -60,8 +59,6 @@ export class UserController {
 
   @Get('/unleash')
   index(): string {
-    // the UnleashService can be used in all controllerrs and provideers
-    //console.log(this.unleash);
     const active = this.unleashService.isEnabled(
       'pichanga-price-from-disitributor',
     );
@@ -70,20 +67,10 @@ export class UserController {
 
   @Get('/unleash/new')
   unleash(): string {
-    // the UnleashService can be used in all controllerrs and provideers
-    //console.log(this.unleash);
     const active = this.unleashService.isEnabled(
       'pichanga-price-from-disitributor',
     );
-    return active ? 'feature is active' : 'feature is not active';
-  }
-  @Get('/unleash/new')
-  new(): string {
-    // the UnleashService can be used in all controllerrs and provideers
-    //console.log(this.unleash);
-    const active = this.unleashService.isEnabled(
-      'pichanga-price-from-disitributor',
-    );
+    console.log('que paso ayer');
     return active ? 'feature is active' : 'feature is not active';
   }
 }
