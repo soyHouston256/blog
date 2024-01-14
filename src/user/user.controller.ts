@@ -8,7 +8,7 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { UserService } from '../application/user.service';
+import { UserService } from './user.service';
 import { User } from 'src/auth/entities/User';
 import { CreateUserDto } from './dto/register-user.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
@@ -71,7 +71,6 @@ export class UserController {
     const active = this.unleashService.isEnabled(
       'pichanga-price-from-disitributor',
     );
-    console.log('que paso ayer');
     return active ? 'feature is active' : 'feature is not active';
   }
 }

@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { UserController } from './infrastructure/user.controller';
-import { UserService } from './application/user.service';
-import { USER_REPOSITORY } from './domain/user.repository';
-import { MongodbUserRepository } from './infrastructure/mongodb-user.repository';
+import { UserController } from './user.controller';
+import { UserService } from './user.service';
+import { USER_REPOSITORY } from './user.repository';
+import { MongodbUserRepository } from './mongodb-user.repository';
 import { UnleashService } from 'src/infra/unleash/unleash.service';
 
 @Module({

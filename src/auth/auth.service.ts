@@ -1,5 +1,5 @@
 import { HttpException, Injectable } from '@nestjs/common';
-import { UserService } from 'src/user/application/user.service';
+import { UserService } from 'src/user/user.service';
 import { LoginDto } from './entities/LoginDto.dto';
 import { compare } from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
@@ -18,7 +18,6 @@ export class AuthService {
     const user = await this.usersService.findByCriteria({ email });
 
     if (!user || user.length < 1) {
-      console.log('si entramos');
       throw new HttpException('USER_NOT_FOUND', 404);
     }
     const checkPassword = await compare(password, user[0].password);

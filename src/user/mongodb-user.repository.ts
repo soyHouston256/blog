@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/mongoose';
 import { Connection } from 'mongoose';
-import { UserRepository } from '../domain/user.repository';
+import { UserRepository } from './user.repository';
 import { User } from 'src/auth/entities/User';
 import { ObjectId } from 'mongodb';
 import { hash } from 'bcrypt';
