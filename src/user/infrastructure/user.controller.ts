@@ -30,6 +30,7 @@ export class UserController {
   }
 
   @Get(':id')
+  @UseGuards(JwtAuthGuard)
   async findById(@Param('id') userId: string): Promise<User> {
     const user = await this.userService.findById(userId);
     if (!user) {

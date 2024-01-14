@@ -19,9 +19,7 @@ export default (): GlobalConfig => ({
   },
   unleash: {
     apiUrl: process.env.UNLEASH_API_URL,
-    apiToken:
-      process.env.UNLEASH_API_TOKEN ||
-      'default:development.unleash-insecure-api-token',
+    apiToken: process.env.UNLEASH_API_TOKEN,
   },
 });
 //'user:cc60edc63a0c450688a04b96a8577c9445b0b020bd7bb578b0368403',
