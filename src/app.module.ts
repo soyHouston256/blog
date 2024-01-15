@@ -4,7 +4,6 @@ import { UserModule } from './user/user.module';
 import configuration from './config/configuration';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { UnleashService } from './infra/unleash/unleash.service';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -20,6 +19,6 @@ import { UnleashService } from './infra/unleash/unleash.service';
       inject: [ConfigService],
     }),
   ],
-  providers: [UnleashService],
+  providers: [],
 })
 export class AppModule {}

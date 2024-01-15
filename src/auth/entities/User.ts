@@ -1,5 +1,5 @@
-import { Types } from 'mongoose';
-import { AggregateRoot } from '@app/common';
+import { AggregateRoot } from '../../common/aggregate-root';
+
 export class User extends AggregateRoot {
   constructor(
     readonly id: string,

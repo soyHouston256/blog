@@ -12,14 +12,10 @@ import { UserService } from './user.service';
 import { User } from 'src/auth/entities/User';
 import { CreateUserDto } from './dto/register-user.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
-import { UnleashService } from 'src/infra/unleash/unleash.service';
 
 @Controller('user')
 export class UserController {
-  constructor(
-    private readonly userService: UserService,
-    private readonly unleashService: UnleashService,
-  ) {}
+  constructor(private readonly userService: UserService) {}
   @Get('lista')
   async getAll(): Promise<User[]> {
     const users = await this.userService.getAll();
@@ -56,21 +52,5 @@ export class UserController {
     const users = await this.userService.create(dto);
 
     return users;
-  }
-
-  @Get('/unleash')
-  index(): string {
-    const active = this.unleashService.isEnabled(
-      'pichanga-price-from-disitributor',
-    );
-    return active ? 'feature is active' : 'feature is not active';
-  }
-
-  @Get('/unleash/new')
-  unleash(): string {
-    const active = this.unleashService.isEnabled(
-      'pichanga-price-from-disitributor',
-    );
-    return active ? 'feature is active' : 'feature is not active';
   }
 }

@@ -3,7 +3,6 @@ import { UserController } from './user.controller';
 import { UserService } from './user.service';
 import { USER_REPOSITORY } from './user.repository';
 import { MongodbUserRepository } from './mongodb-user.repository';
-import { UnleashService } from 'src/infra/unleash/unleash.service';
 
 @Module({
   controllers: [UserController],
@@ -13,7 +12,6 @@ import { UnleashService } from 'src/infra/unleash/unleash.service';
       useClass: MongodbUserRepository,
     },
     UserService,
-    UnleashService,
   ],
   imports: [],
   exports: [UserService],
