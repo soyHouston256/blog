@@ -1,4 +1,4 @@
-import { IsUUID, IsNumber, IsString, IsDate, IsEmail } from 'class-validator';
+import { IsString, IsEmail, IsBoolean, IsOptional } from 'class-validator';
 
 export class CreateUserDto {
   @IsString()
@@ -15,4 +15,33 @@ export class CreateUserDto {
 
   @IsString()
   password: string;
+
+  @IsBoolean()
+  isAdmin: boolean;
+}
+
+export class UpdateUserDto {
+  @IsString()
+  @IsOptional()
+  name?: string;
+
+  @IsString()
+  @IsOptional()
+  username?: string;
+
+  @IsString()
+  @IsOptional()
+  lastName?: string;
+
+  @IsEmail()
+  @IsOptional()
+  email?: string;
+
+  @IsString()
+  @IsOptional()
+  password: string;
+
+  @IsBoolean()
+  @IsOptional()
+  isAdmin?: boolean;
 }

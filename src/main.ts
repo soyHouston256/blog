@@ -12,10 +12,11 @@ async function bootstrap() {
     AppModule,
     new FastifyAdapter(),
   );
-  useContainer(app.select(AppModule), { fallbackOnErrors: true });
-  const configService = app.get(ConfigService);
 
+  const configService = app.get(ConfigService);
   const httpConfig = configService.get('http');
+
+  useContainer(app.select(AppModule), { fallbackOnErrors: true });
   app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
 
   await app.listen(httpConfig.port, httpConfig.host);
