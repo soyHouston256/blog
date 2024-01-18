@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   NotFoundException,
   Param,
@@ -50,6 +51,15 @@ export class UserController {
     @Body() dto: UpdateUserDto,
   ): Promise<User | null> {
     const user = await this.userService.update(userId, dto);
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+    return user;
+  }
+  @Delete(':id')
+  @UseGuards(JwtAuthGuard)
+  async delete(@Param('id') userId: string): Promise<boolean> {
+    const user = await this.userService.delete(userId);
     if (!user) {
       throw new NotFoundException('User not found');
     }

@@ -11,4 +11,5 @@ export interface UserRepository {
   update(userId: string, user: UpdateUserDto): Promise<User | null>;
   findByCriteria(criteria: Record<string, any>): Promise<User[]>;
   findByField(property: string, value: string): Promise<boolean>;
+  delete(userId: string): Promise<boolean>;
 }

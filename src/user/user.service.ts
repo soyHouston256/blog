@@ -33,4 +33,7 @@ export class UserService {
   async findByField(property: string, value: string): Promise<boolean> {
     return this.userRepository.findByField(property, value);
   }
+  async delete(userId: string): Promise<boolean> {
+    return this.userRepository.delete(userId);
+  }
 }

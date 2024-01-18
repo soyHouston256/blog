@@ -49,7 +49,6 @@ export class MongodbUserRepository implements UserRepository {
   }
 
   async findById(userId: string): Promise<User> {
-    console.log('implementacion', userId);
     const userDB = await this.connection
       .collection(this.collectionName)
       .findOne({ _id: new ObjectId(userId) });
@@ -131,5 +130,11 @@ export class MongodbUserRepository implements UserRepository {
       .collection(this.collectionName)
       .findOne({ [property]: value });
     return result ? true : false;
+  }
+  async delete(userId: string) {
+    const result = await this.connection
+      .collection(this.collectionName)
+      .deleteOne({ _id: new ObjectId(userId) });
+    return result.deletedCount > 0 ? true : false;
   }
 }
