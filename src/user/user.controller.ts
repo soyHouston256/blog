@@ -66,8 +66,8 @@ export class UserController {
     return user;
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get('search')
+  @UseGuards(JwtAuthGuard)
   async findByCriteria(@Query() query: Record<string, any>): Promise<User[]> {
     const users = await this.userService.findByCriteria(query);
 

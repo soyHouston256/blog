@@ -24,7 +24,7 @@ export class AuthService {
     if (!checkPassword) {
       throw new HttpException('INVALID_PASSWORD', 401);
     }
-    const payload = { id: user[0].id, name: user[0].name };
+    const payload = { id: user[0].id, username: user[0].username };
 
     const token = this.jwtService.sign(payload, {
       expiresIn: `${process.env.MINUTES_EXPIRE_TOKEN}m`,

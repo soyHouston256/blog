@@ -4,6 +4,7 @@ import { UserModule } from './user/user.module';
 import configuration from './config/configuration';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { PostsModule } from './post/post.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -18,6 +19,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       useFactory: (configService: ConfigService) => configService.get('db'),
       inject: [ConfigService],
     }),
+    PostsModule,
   ],
   providers: [],
 })
