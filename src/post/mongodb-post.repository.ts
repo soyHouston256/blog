@@ -5,6 +5,7 @@ import { PostsRepository } from './post.repository';
 import { ObjectId } from 'mongodb';
 import { Posts } from './dto/post';
 import { UpdatePostsDto } from './dto/register-post.dto';
+import { isTypedArray } from 'util/types';
 
 @Injectable()
 export class MongodbPostRepository implements PostsRepository {
@@ -20,10 +21,14 @@ export class MongodbPostRepository implements PostsRepository {
     return this.connection.collection(this.collectionName).insertOne(newPost);
   }
 
-  async getAll(): Promise<Posts[]> {
+  async getAll(paramPage: number, paramPageSize: number): Promise<Posts[]> {
+    const pageSize = paramPageSize;
+    const page = paramPage;
     const postssDB = await this.connection
       .collection(this.collectionName)
       .find()
+      .skip((page - 1) * pageSize)
+      .limit(pageSize)
       .toArray();
     const result: Posts[] = await Promise.all(
       postssDB.map(async (posts) => {
@@ -130,6 +135,42 @@ export class MongodbPostRepository implements PostsRepository {
       const postsDB = await this.connection
         .collection(this.collectionName)
         .find({ author: userId })
+        .toArray();
+
+      const result: Posts[] = await Promise.all(
+        postsDB.map(async (posts) => {
+          const id = posts._id.toString();
+          const author = this.getAuthor(posts.author);
+          return new Posts(
+            (posts.id = id),
+            posts.title,
+            await (posts.author = author),
+            posts.content,
+            posts.categories,
+            posts.isDraft,
+            posts.createdAt,
+            posts.updatedAt,
+          );
+        }),
+      );
+      return result;
+    } catch (error) {
+      console.error('Error en findByCriteria:', error);
+      throw error; // Puedes manejar el error según tus necesidades
+    }
+  }
+
+  async findByCategories(
+    categories: string,
+    page: number,
+    pageSize: number,
+  ): Promise<Posts[]> {
+    try {
+      const categoriesArray = categories ? categories.split(',') : [];
+      const postsDB = await this.connection
+        .collection(this.collectionName)
+        .find({ categories: { $in: categoriesArray } })
+        .limit(pageSize)
         .toArray();
 
       const result: Posts[] = await Promise.all(

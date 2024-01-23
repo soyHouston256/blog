@@ -29,9 +29,11 @@ export class PostController {
   }
 
   @Get('')
-  @UseGuards(JwtAuthGuard)
-  async getAll(): Promise<Posts[]> {
-    const users = await this.postsService.getAll();
+  async getAll(
+    @Query('page') page = 1,
+    @Query('pageSize') pageSize = 10,
+  ): Promise<Posts[]> {
+    const users = await this.postsService.getAll(+page, +pageSize);
     if (!users) {
       throw new NotFoundException('Posts not found');
     }
@@ -39,7 +41,6 @@ export class PostController {
   }
 
   @Get(':id')
-  @UseGuards(JwtAuthGuard)
   async findById(@Param('id') postsId: string): Promise<Posts> {
     const user = await this.postsService.findById(postsId);
     if (!user) {
@@ -72,7 +73,6 @@ export class PostController {
   }
 
   @Get('search')
-  @UseGuards(JwtAuthGuard)
   async findByCriteria(@Query() query: Record<string, any>): Promise<Posts[]> {
     const user = await this.postsService.searchByCriteria(query);
     if (!user) {
@@ -82,12 +82,27 @@ export class PostController {
   }
 
   @Get('user/:id')
-  @UseGuards(JwtAuthGuard)
   async findByUserId(@Param('id') userId: string): Promise<Posts[]> {
-    const user = await this.postsService.searchByUserId(userId);
-    if (!user) {
+    const posts = await this.postsService.searchByUserId(userId);
+    if (!posts) {
       throw new NotFoundException('Posts not found');
     }
-    return user;
+    return posts;
+  }
+  @Get('filter/')
+  async findByCategories(
+    @Query('categories') categories: string,
+    @Query('page') page = 1,
+    @Query('pageSize') pageSize = 10,
+  ): Promise<Posts[]> {
+    const posts = await this.postsService.findByCategories(
+      categories,
+      +page,
+      +pageSize,
+    );
+    if (!posts) {
+      throw new NotFoundException('Posts not found');
+    }
+    return posts;
   }
 }

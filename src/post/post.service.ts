@@ -15,8 +15,8 @@ export class PostsService {
     return this.postRepository.create(dto);
   }
 
-  async getAll(): Promise<Posts[]> {
-    return this.postRepository.getAll();
+  async getAll(page: number, pageSize: number): Promise<Posts[]> {
+    return this.postRepository.getAll(page, pageSize);
   }
 
   async findById(postsId: string): Promise<Posts> {
@@ -35,5 +35,12 @@ export class PostsService {
   }
   async searchByUserId(userId: string): Promise<Posts[]> {
     return this.postRepository.findByUserId(userId);
+  }
+  async findByCategories(
+    categories: string,
+    page: number,
+    pageSize: number,
+  ): Promise<Posts[]> {
+    return this.postRepository.findByCategories(categories, page, pageSize);
   }
 }
