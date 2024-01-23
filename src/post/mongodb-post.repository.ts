@@ -5,7 +5,6 @@ import { PostsRepository } from './post.repository';
 import { ObjectId } from 'mongodb';
 import { Posts } from './dto/post';
 import { UpdatePostsDto } from './dto/register-post.dto';
-import { isTypedArray } from 'util/types';
 
 @Injectable()
 export class MongodbPostRepository implements PostsRepository {
