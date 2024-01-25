@@ -18,6 +18,9 @@ export class CreateUserDto {
 
   @IsBoolean()
   isAdmin: boolean;
+
+  @IsString()
+  role: string;
 }
 
 export class UpdateUserDto {
@@ -44,4 +47,8 @@ export class UpdateUserDto {
   @IsBoolean()
   @IsOptional()
   isAdmin?: boolean;
+
+  @IsString()
+  @IsOptional()
+  role: string;
 }

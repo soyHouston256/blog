@@ -11,7 +11,6 @@ export class PostsService {
   ) {}
 
   async create(dto): Promise<void> {
-    console.log('asdas');
     return this.postRepository.create(dto);
   }
 

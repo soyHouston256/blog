@@ -9,6 +9,7 @@ export class User extends AggregateRoot {
     readonly email: string,
     readonly password: string,
     readonly isAdmin: boolean,
+    readonly role: string,
     readonly createdAt: Date,
     readonly updatedAt: Date,
   ) {
@@ -23,6 +24,7 @@ export class User extends AggregateRoot {
       email: this.email,
       password: this.password,
       isAdmin: this.isAdmin,
+      role: this.role,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt,
     };

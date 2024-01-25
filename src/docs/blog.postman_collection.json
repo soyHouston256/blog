@@ -67,7 +67,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/users/search?username=osoosoosos",
+							"raw": "http://localhost:3000/users/search?username=houston2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -80,7 +80,7 @@
 							"query": [
 								{
 									"key": "username",
-									"value": "osoosoosos"
+									"value": "houston2"
 								}
 							]
 						}
@@ -103,7 +103,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/users/65a937e0862f2da231d9f797",
+							"raw": "http://localhost:3000/users/65b1ffbe3588974e6b8d1712",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -111,7 +111,7 @@
 							"port": "3000",
 							"path": [
 								"users",
-								"65a937e0862f2da231d9f797"
+								"65b1ffbe3588974e6b8d1712"
 							]
 						}
 					},
@@ -133,7 +133,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/users/65a937e0862f2da231d9f797",
+							"raw": "http://localhost:3000/users/65b1ffbe3588974e6b8d1712",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -141,7 +141,7 @@
 							"port": "3000",
 							"path": [
 								"users",
-								"65a937e0862f2da231d9f797"
+								"65b1ffbe3588974e6b8d1712"
 							]
 						}
 					},
@@ -154,7 +154,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Max Houston\",\n    \"username\": \"houston\",\n    \"lastName\": \"Ramirez Martel\",\n    \"email\": \"maxito@gmail.com\",\n    \"password\": \"password\",\n    \"isAdmin\": true\n}",
+							"raw": "{\n    \"name\": \"max Houston\",\n    \"username\": \"houston\",\n    \"lastName\": \"Ramirez Martel\",\n    \"email\": \"jess@gmail.com\",\n    \"password\": \"password\",\n    \"isAdmin\": true,\n    \"role\":\"admin\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -192,7 +192,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"update new\",\n    \"username\": \"update new\",\n    \"lastName\": \"Ramirez Martel update new\",\n    \"email\": \"vanaaaaa@gmail.com\",\n    \"isAdmin\": false\n}",
+							"raw": "{\n   \"name\": \"max Houston\",\n    \"username\": \"houstonUp\",\n    \"lastName\": \"Ramirez Martel\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -200,7 +200,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/users/65a931ae8f4f7e847261d96f",
+							"raw": "http://localhost:3000/users/65b0239d5a13683dbfaa5ec4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -208,7 +208,7 @@
 							"port": "3000",
 							"path": [
 								"users",
-								"65a931ae8f4f7e847261d96f"
+								"65b0239d5a13683dbfaa5ec4"
 							]
 						}
 					},
@@ -235,7 +235,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"maxito@gmail.com\",\n    \"password\": \"password\"\n}",
+							"raw": "{\n    \"email\": \"max@gmail.com\",\n    \"password\": \"password\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -252,6 +252,372 @@
 							"path": [
 								"auth",
 								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "posts",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"money\",\n    \"content\": \"carreras de la vida en trading\",\n    \"categories\":[\n        \"data\",\n        \"tech\"\n    ],\n    \"isDraft\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"natacion update\",\n    \"author\": \"ramirez juan update\",\n    \"content\": \"defericos de las marias update\",\n    \"categories\":[\n        \"cosas\",\n        \"nuevas\",\n        \"update\"\n    ],\n    \"isDraft\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/posts/65b023b05a13683dbfaa5ed1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"65b023b05a13683dbfaa5ed1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Posts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts?page=12&pageSize=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "12"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Posts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts/65af4dffc8c0d58f62744fea",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"65af4dffc8c0d58f62744fea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts/65afe93e66fa6131bce13e3d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"65afe93e66fa6131bce13e3d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post by userd Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts/user/65a937e0862f2da231d9f797",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"user",
+								"65a937e0862f2da231d9f797"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search user by userId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/posts/user/65afeab842d217baeceda026",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"user",
+								"65afeab842d217baeceda026"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search user by criteria",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/posts/search?author=65afeab842d217baeceda026",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"search"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "money",
+									"disabled": true
+								},
+								{
+									"key": "categories",
+									"value": "[\"data\",\"\"tech\"\"]",
+									"disabled": true
+								},
+								{
+									"key": "author",
+									"value": "65afeab842d217baeceda026"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Posts by Categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts/filter?categories=[\"finanzas\"]",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "categories",
+									"value": "[\"finanzas\"]"
+								}
 							]
 						}
 					},

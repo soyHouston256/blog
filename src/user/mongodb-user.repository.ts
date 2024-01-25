@@ -41,6 +41,7 @@ export class MongodbUserRepository implements UserRepository {
         user.email,
         user.password,
         user.isAdmin,
+        user.role,
         user.createdAt,
         user.updatedAt,
       );
@@ -64,6 +65,7 @@ export class MongodbUserRepository implements UserRepository {
       userDB.email,
       userDB.password,
       userDB.isAdmin,
+      userDB.role,
       userDB.createdAt,
       userDB.updatedAt,
     );
@@ -87,6 +89,7 @@ export class MongodbUserRepository implements UserRepository {
           user.email,
           user.password,
           user.isAdmin,
+          user.role,
           user.createdAt,
           user.updatedAt,
         );
