@@ -9,6 +9,7 @@ import { UpdatePostsDto } from './dto/register-post.dto';
 @Injectable()
 export class MongodbPostRepository implements PostsRepository {
   collectionName = 'posts';
+  userCollection = 'users';
   constructor(@InjectConnection() private connection: Connection) {}
 
   async create(post: Posts) {
@@ -142,9 +143,13 @@ export class MongodbPostRepository implements PostsRepository {
   }
   async findByUserId(userId: string): Promise<Posts[]> {
     try {
+      const user = await this.connection
+        .collection(this.userCollection)
+        .findOne({ _id: new ObjectId(userId) });
+
       const postsDB = await this.connection
         .collection(this.collectionName)
-        .find({ author: userId })
+        .find({ author: user._id.toString() })
         .toArray();
 
       const result: Posts[] = await Promise.all(
