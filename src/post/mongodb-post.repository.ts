@@ -102,6 +102,17 @@ export class MongodbPostRepository implements PostsRepository {
   }
   async searchByCriteria(criteria: Record<string, any>): Promise<Posts[]> {
     try {
+      if (criteria.categories && criteria.categories.length > 0) {
+        criteria.categories = {
+          $in: JSON.parse(criteria.categories),
+        };
+      }
+      if (criteria.title && criteria.title.length > 0) {
+        criteria.title = {
+          $regex: criteria.title,
+          $options: 'i',
+        };
+      }
       const postsDB = await this.connection
         .collection(this.collectionName)
         .find(criteria)
@@ -165,10 +176,9 @@ export class MongodbPostRepository implements PostsRepository {
     pageSize: number,
   ): Promise<Posts[]> {
     try {
-      const categoriesArray = categories ? categories.split(',') : [];
       const postsDB = await this.connection
         .collection(this.collectionName)
-        .find({ categories: { $in: categoriesArray } })
+        .find({ categories: { $in: JSON.parse(categories) } })
         .limit(pageSize)
         .toArray();
 
