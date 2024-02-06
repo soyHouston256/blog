@@ -1,7 +1,8 @@
 //import { User } from 'src/auth/entities/User';
 
 import { User } from 'src/auth/entities/User';
-import { CreateUserDto, UpdateUserDto } from './dto/register-user.dto';
+import { CreateUserDto } from './dto/register-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 export const USER_REPOSITORY = 'UserRepository';
 export interface UserRepository {

@@ -4,7 +4,7 @@ import { Connection } from 'mongoose';
 import { PostsRepository } from './post.repository';
 import { ObjectId } from 'mongodb';
 import { Posts } from './dto/post';
-import { UpdatePostsDto } from './dto/register-post.dto';
+import { UpdatePostsDto } from './dto/update-post.dto';
 
 @Injectable()
 export class MongodbPostRepository implements PostsRepository {

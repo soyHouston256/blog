@@ -1,5 +1,5 @@
 import { Posts } from './dto/post';
-import { UpdatePostsDto } from './dto/register-post.dto';
+import { UpdatePostsDto } from './dto/update-post.dto';
 
 export const POST_REPOSITORY = 'PostsRepository';
 export interface PostsRepository {

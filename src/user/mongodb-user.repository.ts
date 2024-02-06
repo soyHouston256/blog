@@ -5,7 +5,7 @@ import { UserRepository } from './user.repository';
 import { User } from 'src/auth/entities/User';
 import { ObjectId } from 'mongodb';
 import { hash } from 'bcrypt';
-import { UpdateUserDto } from './dto/register-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
 export class MongodbUserRepository implements UserRepository {

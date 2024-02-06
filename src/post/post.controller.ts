@@ -12,12 +12,13 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { PostsService } from './post.service';
-import { CreatePostDto, UpdatePostsDto } from './dto/register-post.dto';
+import { CreatePostDto } from './dto/register-post.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Posts } from './dto/post';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Role } from '../auth/enums/rol.enum';
 import { Auth } from '../auth/decorators/auth.decorator';
+import { UpdatePostsDto } from './dto/update-post.dto';
 
 @ApiTags('Posts')
 @Controller('posts')

@@ -13,11 +13,12 @@ import {
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from '../auth/entities/User';
-import { CreateUserDto, UpdateUserDto } from './dto/register-user.dto';
+import { CreateUserDto } from './dto/register-user.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Role } from '../auth/enums/rol.enum';
 import { Auth } from 'src/auth/decorators/auth.decorator';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @ApiTags('Users')
 @Controller('users')
