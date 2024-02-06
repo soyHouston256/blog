@@ -5,6 +5,7 @@ import { PostsRepository } from './post.repository';
 import { ObjectId } from 'mongodb';
 import { Posts } from './dto/post';
 import { UpdatePostsDto } from './dto/update-post.dto';
+import { CreatePostDto } from './dto/register-post.dto';
 
 @Injectable()
 export class MongodbPostRepository implements PostsRepository {
@@ -12,7 +13,7 @@ export class MongodbPostRepository implements PostsRepository {
   userCollection = 'users';
   constructor(@InjectConnection() private connection: Connection) {}
 
-  async create(post: Posts) {
+  async create(post: CreatePostDto) {
     const newPost = {
       ...post,
       createdAt: new Date(),
