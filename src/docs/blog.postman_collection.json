@@ -154,7 +154,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"max Houston\",\n    \"username\": \"houston\",\n    \"lastName\": \"Ramirez Martel\",\n    \"email\": \"jess@gmail.com\",\n    \"password\": \"password\",\n    \"isAdmin\": true,\n    \"role\":\"admin\"\n}",
+							"raw": "{\n    \"name\": \"max Houston\",\n    \"username\": \"houston\",\n    \"lastName\": \"Ramirez Martel\",\n    \"email\": \"max@gmail.com\",\n    \"password\": \"password\",\n    \"isAdmin\": true,\n    \"role\":\"admin\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -355,7 +355,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/posts?page=12&pageSize=2",
+							"raw": "http://localhost:3000/posts?page=12&pageSize=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -371,7 +371,7 @@
 								},
 								{
 									"key": "pageSize",
-									"value": "2"
+									"value": "1"
 								}
 							]
 						}
@@ -454,7 +454,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/posts/user/65a937e0862f2da231d9f797",
+							"raw": "http://localhost:3000/posts/user/65b0239d5a13683dbfaa5ec4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -463,7 +463,7 @@
 							"path": [
 								"posts",
 								"user",
-								"65a937e0862f2da231d9f797"
+								"65b0239d5a13683dbfaa5ec4"
 							],
 							"query": [
 								{
@@ -547,7 +547,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/posts/search?author=65afeab842d217baeceda026",
+							"raw": "http://localhost:3000/posts/search?categories=[\"healthy\"]&author=65afeab842d217baeceda026",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -565,8 +565,7 @@
 								},
 								{
 									"key": "categories",
-									"value": "[\"data\",\"\"tech\"\"]",
-									"disabled": true
+									"value": "[\"healthy\"]"
 								},
 								{
 									"key": "author",
@@ -593,7 +592,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/posts/filter?categories=[\"finanzas\"]",
+							"raw": "http://localhost:3000/posts/filter?page=1&pageSize=2&categories=[\"healthy\",\"finanzas\"]",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -606,17 +605,15 @@
 							"query": [
 								{
 									"key": "page",
-									"value": "1",
-									"disabled": true
+									"value": "1"
 								},
 								{
 									"key": "pageSize",
-									"value": "2",
-									"disabled": true
+									"value": "2"
 								},
 								{
 									"key": "categories",
-									"value": "[\"finanzas\"]"
+									"value": "[\"healthy\",\"finanzas\"]"
 								}
 							]
 						}
